@@ -1,16 +1,18 @@
+$(document).ready(function() {
+    jaysays();
+});
+
 function jaysays() {
-    var sayings = [
-        "You're awesome!",
-        "You're gorgeous!",
-        "How awesome was your day?",
-        "Dope swaggity!",
-        "You're dressed for something!",
-        "Dress the way you want to feel!",
-        "You're a star!",
-        "There's no one like you!"
-    ];
-    var i = Math.floor(Math.random() * Math.floor(sayings.length));
-    var say = sayings[i];
-    console.log(document.getElementById("jaysays"));
-    document.getElementById("jaysays").innerHTML = say;
+    var request = new XMLHttpRequest();
+    var getString = "/sayings";
+    request.open("GET", getString, true);
+    request.onreadystatechange = function() {
+        if (request.readyState !=4)
+            return;
+        sayings = JSON.parse(request.responseText);
+        var i = Math.floor(Math.random() * Math.floor(sayings.length));
+        var say = sayings[i];
+        $("#jaysays").html(say);
+    };
+    request.send();
 }
