@@ -6,9 +6,11 @@ function cors(response) {
     return response;
 }
 
+app.use(express.static(__dirname + '/public'));
+
 app.get("/", function(request, response) {
     response = cors(response);
-    response.sendfile("/public/index.html");
+    response.sendfile(__dirname + "/public/index.html");
 });
 
 app.listen(process.env.PORT || 8888);
