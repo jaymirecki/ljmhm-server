@@ -8,7 +8,7 @@ function cors(response) {
 
 app.get("/", function(request, response) {
     response = cors(response);
-    response.send("<html><body><h1>Coming Soon!</h1></body></html>");
+    response.sendfile("/index.html");
 });
 
 app.listen(process.env.PORT || 8888);
