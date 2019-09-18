@@ -1,12 +1,12 @@
 #content, #img {
-    width: 48vw;
+    width: 100vw;
     float: left;
     text-align: center;
-    height: calc(100vh - 30px);
+    /* height: calc(100vh - 30px); */
 }
-#content {
+/* #content {
     padding: calc(50vh - 100px) 0px;
-}
+} */
 /* #img {
     border: 1px solid black;
 } */
